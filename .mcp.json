@@ -1,0 +1,25 @@
+{
+
+  "mcpServers": {
+
+    "offer-intel": {
+
+      "type": "stdio",
+
+      "command": "${CLAUDE_PROJECT_DIR}/.venv/bin/python",
+
+      "args": ["-m", "offer_intel"],
+
+      "cwd": "${CLAUDE_PROJECT_DIR}",
+
+      "env": {
+
+        "FASTMCP_SHOW_SERVER_BANNER": "false"
+
+      }
+
+    }
+
+  }
+
+}

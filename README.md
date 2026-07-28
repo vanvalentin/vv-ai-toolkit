@@ -8,6 +8,39 @@ A public, evolving collection of the prompts, configurations, tools, and notes I
 - **Resources** — links, articles, examples, and ideas to explore or revisit.
 - **Experiments** — code, writing, and prototypes created while testing AI-assisted workflows.
 
+## Available experts
+
+- [Portable Offer Intelligence](experts/job-offer-evaluation/README.md) — a local,
+  evidence-first MCP gateway and Agent Skill for critical company, role, candidate,
+  and compensation research in Cursor, Codex, and Claude Code.
+
+## Quick start
+
+Install the Command Line Tools and Python, then provision the repository:
+
+```bash
+xcode-select --install
+brew install python
+git clone https://github.com/vanvalentin/vv-ai-toolkit.git
+cd vv-ai-toolkit
+python3 experts/job-offer-evaluation/scripts/setup.py
+```
+
+Open the repository in Cursor, Claude Code, or Codex and approve the checked-in
+`offer-intel` MCP configuration. The clients launch `.venv/bin/python` directly.
+Restart the client after the first setup, then confirm the MCP tool list includes
+`create_offer_case`.
+
+For LinkedIn research, establish the local browser session:
+
+```bash
+source .venv/bin/activate
+python experts/job-offer-evaluation/scripts/linkedin_login.py
+```
+
+See the [Offer Intelligence guide](experts/job-offer-evaluation/README.md) for client
+configuration, Glassdoor login, verification, privacy, and troubleshooting.
+
 ## Proposed structure
 
 ```text
