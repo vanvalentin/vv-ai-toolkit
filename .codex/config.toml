@@ -1,0 +1,8 @@
+[mcp_servers.offer-intel]
+command = ".venv/bin/python"
+args = ["-m", "offer_intel"]
+cwd = "."
+startup_timeout_sec = 30
+
+[mcp_servers.offer-intel.env]
+FASTMCP_SHOW_SERVER_BANNER = "false"

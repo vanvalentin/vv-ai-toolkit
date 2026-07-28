@@ -1,0 +1,56 @@
+{
+  "case": {
+    "company": "Example Analytics",
+    "role_title": "Staff Data Engineer",
+    "location": "London",
+    "currency": "GBP",
+    "employment_type": "full-time",
+    "preferred_tone": "professional-critical"
+  },
+  "sources": [
+    {
+      "id": "SRC-filing",
+      "title": "Example Analytics annual report",
+      "url": "https://example.com/annual-report",
+      "kind": "primary",
+      "publisher": "Example Analytics",
+      "retrieved_at": "2026-07-01T00:00:00Z",
+      "published_at": "2026-06-15"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "EV-growth",
+      "claim": "The company reported year-over-year revenue growth.",
+      "excerpt": "Revenue increased 18% year over year.",
+      "source_id": "SRC-filing",
+      "topic": "financial_health",
+      "claim_type": "fact",
+      "confidence": "high",
+      "observed_at": "2026-06-15",
+      "metadata": {}
+    }
+  ],
+  "good_report": {
+    "claims": [
+      {
+        "text": "The company reported 18% year-over-year revenue growth. [EV-growth]",
+        "evidence_ids": ["EV-growth"],
+        "material": true
+      }
+    ],
+    "source_ids": ["SRC-filing"],
+    "disclosed_blind_spots": []
+  },
+  "bad_report": {
+    "claims": [
+      {
+        "text": "The company is financially safe.",
+        "evidence_ids": [],
+        "material": true
+      }
+    ],
+    "source_ids": [],
+    "disclosed_blind_spots": []
+  }
+}
