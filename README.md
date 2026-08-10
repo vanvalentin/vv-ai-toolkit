@@ -13,6 +13,9 @@ A public, evolving collection of the prompts, configurations, tools, and notes I
 - [Portable Offer Intelligence](experts/job-offer-evaluation/README.md) — a local,
   evidence-first MCP gateway and Agent Skill for critical company, role, candidate,
   and compensation research in Cursor, Codex, and Claude Code.
+- [Interview preparation](experts/interview-prep/README.md) — Agent Skill and
+  methodology for CV+JD interview prep packs and optional mock rounds, reusing
+  `offer-intel` for public interview-process research when available.
 
 ## Quick start
 
@@ -48,6 +51,7 @@ experts/
   cv-tailoring/
   recipe-adjustment/
   job-offer-evaluation/
+  interview-prep/
 resources/
   to-explore.md
   explored.md
