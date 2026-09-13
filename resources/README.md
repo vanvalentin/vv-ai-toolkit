@@ -2,8 +2,8 @@
 
 This directory records public references, generalized lessons already applied, and a prioritized exploration backlog for the Pi Discord Specialists platform.
 
-- [`explored.md`](explored.md) — reviewed sources, implementation decisions, limitations, and reusable lessons from operating the specialist platform.
-- [`to-explore.md`](to-explore.md) — focused future investigations with a question and success criterion.
+- [`explored.md`](explored.md) — outcomes and boundaries discussed directly together, with pointers into `docs/` and `reference/`.
+- [`to-explore.md`](to-explore.md) — previously saved items plus new questions raised directly in conversation, each with a question and success criterion.
 
 ## Privacy rule
 
