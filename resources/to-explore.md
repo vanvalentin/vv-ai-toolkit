@@ -24,13 +24,16 @@ Only items with prior evidence are kept here: entries saved before the platform 
 
 ## Memory → OKF as a memory.md replacement
 
-### OKF evaluation
+### Google OKF (Open Knowledge Format) as a `memory.md` replacement
 
 - **Added:** 2026-09-13
-- **Source:** current thread — you asked to explore OKF to replace `memory.md`.
-- **Question:** Which OKF is meant (link or full name needed), and can it replace per-specialist `memory.md` with better structure, scoping, retention, and isolation?
-- **Success criterion:** TBD once the candidate is identified; a trial must prove scoped durable memory with ownership, retention, deletion, and no cross-specialist leakage before any migration.
-- **Status:** awaiting your link or expansion; not evaluated yet.
+- **Source:** current thread — you asked to explore Google's OKF to replace `memory.md`.
+- **Spec:** https://github.com/GoogleCloudPlatform/open-knowledge-format (canonical repo, v0.2 `SPEC.md`; the older `knowledge-catalog/okf/` copy is a frozen snapshot)
+- **Background:** https://cloud.google.com/blog/products/data-analytics/okf-v0-2-adds-trust-signals/
+- **Summary:** vendor-neutral Markdown plus YAML frontmatter for agent knowledge. v0.2 adds optional `generated`, `verified`, `sources`, `status`, and `stale_after` signals, trust tiers derived from verification, progressive disclosure via `index.md`, and graph-shaped cross-links. Only `type` is required; custom keys are preserved.
+- **Why it may fit:** current specialist memory is already Markdown and git-adjacent; OKF would add per-fact provenance, verification state, freshness dates, and selective loading instead of injecting the whole file. Its tooling story (reference producer, visualizer, ecosystem linters) matches the TX-style memory workflow.
+- **Open questions:** OKF targets catalog knowledge, not conversational memory — scoping (specialist vs thread), retention, expiry, deletion, and privacy mapping still need a trial design. Private memories must never enter the public repo, even as OKF bundles.
+- **Success criterion:** convert one specialist's memory to a trial OKF bundle with a selective loader, then prove scoped injection, retention/expiry, deletion, and no cross-specialist leakage before any migration.
 
 ## Tool documentation → synthetic visuals
 
