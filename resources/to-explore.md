@@ -22,6 +22,16 @@ Only items with prior evidence are kept here: entries saved before the platform 
 - **Why explore it:** Evaluate whether the approach could improve long-running, quality-driven agent workflows.
 - **Status:** Carried over from the pre-rewrite backlog. A similar independent-reviewer pattern already exists for reference-matched documents; keep this only if further rollout is wanted.
 
+## Memory → OKF as a memory.md replacement
+
+### OKF evaluation
+
+- **Added:** 2026-09-13
+- **Source:** current thread — you asked to explore OKF to replace `memory.md`.
+- **Question:** Which OKF is meant (link or full name needed), and can it replace per-specialist `memory.md` with better structure, scoping, retention, and isolation?
+- **Success criterion:** TBD once the candidate is identified; a trial must prove scoped durable memory with ownership, retention, deletion, and no cross-specialist leakage before any migration.
+- **Status:** awaiting your link or expansion; not evaluated yet.
+
 ## Tool documentation → synthetic visuals
 
 ### Synthetic screenshots for the tool catalog
