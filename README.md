@@ -1,91 +1,77 @@
-# AI Toolkit
+# Pi Discord Specialists
 
-A public, evolving collection of the prompts, configurations, tools, and notes I use to get more useful results from AI.
+A public, sanitized blueprint for a private self-hosted Discord workspace backed by persistent [Pi](https://pi.dev) agent sessions.
 
-## What's here
+The platform is the primary focus of this repository. It documents the architecture, capability boundaries, security model, operations, and reusable configuration patterns from a working deployment without publishing production code, credentials, account identifiers, private network details, user data, conversation history, or service state.
 
-- **Experts** — reusable AI personas and workflows for specific tasks, such as tailoring a CV to a job offer, adapting recipes, or evaluating a company and role against my profile.
-- **Resources** — links, articles, examples, and ideas to explore or revisit.
-- **Experiments** — code, writing, and prototypes created while testing AI-assisted workflows.
-- **Platforms** — sanitized reference architectures for self-hosted AI workflows.
+## What the platform does
 
-## Available experts
+- Maps each Discord text channel to a specialist role.
+- Turns each top-level request into a thread with its own persistent Pi session.
+- Keeps durable memory separate per specialist while conversation history remains thread-specific.
+- Runs ordinary specialists without Pi's built-in filesystem or shell tools.
+- Exposes only purpose-built extension tools with bounded inputs, outputs, destinations, and side effects.
+- Supports images, text files, PDFs, generated documents, and thread-local uploads.
+- Falls back across model providers when a persistent provider failure occurs.
+- Supports scheduled posts and explicitly authorized autonomous thread runs.
+- Integrates external services through constrained helpers or narrowly scoped MCP servers.
+- Retains one deliberately privileged infrastructure specialist for maintenance.
 
-- [Portable Offer Intelligence](experts/job-offer-evaluation/README.md) — a local,
-  evidence-first MCP gateway and Agent Skill for critical company, role, candidate,
-  and compensation research in Cursor, Codex, and Claude Code.
-- [Interview preparation](experts/interview-prep/README.md) — Agent Skill and
-  methodology for CV+JD interview prep packs and optional mock rounds, reusing
-  `offer-intel` for public interview-process research when available.
+## Start here
 
-## Available platform blueprints
+- [Architecture](docs/architecture.md) — components, session lifecycle, policy layers, tool boundaries, scheduling, integrations, and reliability.
+- [Capability catalog](docs/capabilities.md) — generalized snapshot of the current specialist and companion-service capabilities.
+- [Security and privacy](docs/security.md) — least privilege, secret handling, prompt-injection resistance, scoped-tool checklist, and release gate.
+- [Operations](docs/operations.md) — deployment sequence, validation, backups, updates, and recovery practices.
 
-- [Pi Discord Specialists](platforms/pi-discord-specialists/README.md) — a sanitized
-  blueprint for private specialist channels, persistent thread sessions,
-  least-privilege tools, shared memory, provider fallback, and scheduled work.
+## Reference material
 
-## Quick start
+- [Sanitized configuration](reference/config.example.json)
+- [Specialist persona template](reference/specialist-template/AGENTS.md)
+- [Blank specialist memory](reference/specialist-template/memory.md)
+- [Example systemd units](reference/systemd/)
 
-Install the Command Line Tools and Python, then provision the repository:
+These are reference files, not a turnkey export of the private deployment. Replace placeholders locally and keep runtime configuration outside the checkout.
 
-```bash
-xcode-select --install
-brew install python
-git clone https://github.com/vanvalentin/vv-ai-toolkit.git
-cd vv-ai-toolkit
-python3 experts/job-offer-evaluation/scripts/setup.py
-```
-
-Open the repository in Cursor, Claude Code, or Codex and approve the checked-in
-`offer-intel` MCP configuration. The clients launch `.venv/bin/python` directly.
-Restart the client after the first setup, then confirm the MCP tool list includes
-`create_offer_case`.
-
-For LinkedIn research, establish the local browser session:
-
-```bash
-source .venv/bin/activate
-python experts/job-offer-evaluation/scripts/linkedin_login.py
-```
-
-See the [Offer Intelligence guide](experts/job-offer-evaluation/README.md) for client
-configuration, Glassdoor login, verification, privacy, and troubleshooting.
-
-## Proposed structure
+## Architecture at a glance
 
 ```text
-experts/
-  cv-tailoring/
-  recipe-adjustment/
-  job-offer-evaluation/
-  interview-prep/
-resources/
-  to-explore.md
-  explored.md
-experiments/
-platforms/
-  pi-discord-specialists/
+Discord channel -> specialist policy and bounded tool set
+Discord thread  -> independent persistent Pi RPC session
+Scheduler       -> signed, thread-bound scheduled instructions
+Extensions      -> narrow tools and service adapters
+Local helpers   -> isolated service users and permissioned sockets
 ```
 
-Each expert can include:
+The bridge can stop idle Pi processes while retaining session files, then resume the same context when a later thread message arrives.
 
-- a `README.md` explaining the intended use and inputs;
-- the prompt or configuration files;
-- supporting templates, examples, or scripts;
-- notes on what worked and what did not.
+## Repository structure
 
-## Contributing and privacy
+```text
+docs/                       Platform architecture and operating guidance
+reference/                  Sanitized configuration and service templates
+toolkits/career/            Optional offer-intelligence and interview-prep toolkit
+resources/                  Explored and prospective AI workflow ideas
+experiments/                Prototypes and tests
+scripts/check_public_repo.py
+```
 
-This is primarily a personal knowledge base shared publicly. Please do not add private information, credentials, personal contact details, or proprietary materials. Use anonymized examples when an expert needs a CV, job offer, company information, or other sensitive context.
+The career toolkit is intentionally self-contained. Its `.agents`, `.claude`, `.codex`, `.cursor`, and MCP files activate only when that subdirectory is opened as the project, rather than configuring every clone of this repository.
 
-Before publishing changes, run the dependency-free repository check:
+## Privacy gate
+
+Before publishing changes, run:
 
 ```bash
 python3 scripts/check_public_repo.py
 ```
 
-It detects high-confidence secrets and private deployment identifiers. It complements manual review and a maintained secret scanner; it is not a guarantee that content is safe to publish.
+GitHub Actions runs the same dependency-free check on pushes and pull requests. It detects high-confidence secrets and private deployment identifiers, but it complements rather than replaces manual review and a maintained secret scanner.
 
-## Status
+## Scope and roadmap
 
-Work in progress — tools and conventions will change as the collection grows.
+The current release is an implementation-oriented blueprint. A future milestone is a clean, runnable reference bridge and extension set designed for public reuse instead of copying tightly coupled production files.
+
+## License and status
+
+Work in progress. Interfaces, tools, and operational recommendations will evolve as Pi and the deployment change.

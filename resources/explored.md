@@ -29,5 +29,5 @@
 - **Reviewed:** 2026-07-28
 - **Summary:** Portable `SKILL.md` format supported by Cursor, Codex, and Claude Code,
   with client-specific discovery paths.
-- **Decision:** Keep one canonical skill under `.agents/skills` and a thin Claude
-  discovery adapter.
+- **Decision:** Keep one canonical skill under `toolkits/career/.agents/skills` and a
+  thin Claude discovery adapter local to that optional toolkit.

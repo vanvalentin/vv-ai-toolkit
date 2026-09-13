@@ -24,6 +24,9 @@ SENSITIVE_FILENAMES = {
     ".env", "auth.json", "credentials.json", "discord.token", "cookies.json",
 }
 
+# Optional client integrations belong inside their toolkit, not at repository root.
+FORBIDDEN_ROOT_PATHS = (".agents", ".claude", ".codex", ".cursor", ".mcp.json")
+
 RULES: list[tuple[str, re.Pattern[str]]] = [
     ("private key material", re.compile(r"-----BEGIN (?:[A-Z ]+ )?PRIVATE KEY-----")),
     ("AWS access key", re.compile(r"\b(?:AKIA|ASIA)[A-Z0-9]{16}\b")),
@@ -105,6 +108,10 @@ def scan(path: Path) -> list[str]:
 
 def main() -> int:
     all_findings: list[tuple[str, str]] = []
+    for rel in FORBIDDEN_ROOT_PATHS:
+        if (ROOT / rel).exists():
+            all_findings.append((rel, "optional client integration must be toolkit-local"))
+
     for path in candidate_paths():
         for finding in scan(path):
             all_findings.append((path.relative_to(ROOT).as_posix(), finding))
