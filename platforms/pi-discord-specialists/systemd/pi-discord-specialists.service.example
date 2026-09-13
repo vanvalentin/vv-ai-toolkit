@@ -1,0 +1,37 @@
+[Unit]
+Description=Pi Discord specialist bridge
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi-specialists
+Group=pi-specialists
+WorkingDirectory=/opt/pi-discord-specialists
+ExecStart=/usr/bin/node /opt/pi-discord-specialists/bot.js --config /etc/pi-discord-specialists/config.json
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=45
+KillMode=mixed
+UMask=0077
+
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectClock=true
+ProtectHostname=true
+RestrictSUIDSGID=true
+RestrictRealtime=true
+LockPersonality=true
+SystemCallArchitectures=native
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+ReadWritePaths=/var/lib/pi-discord-specialists /var/cache/pi-discord-specialists
+
+[Install]
+WantedBy=multi-user.target

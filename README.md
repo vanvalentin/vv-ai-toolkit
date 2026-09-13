@@ -7,6 +7,7 @@ A public, evolving collection of the prompts, configurations, tools, and notes I
 - **Experts** — reusable AI personas and workflows for specific tasks, such as tailoring a CV to a job offer, adapting recipes, or evaluating a company and role against my profile.
 - **Resources** — links, articles, examples, and ideas to explore or revisit.
 - **Experiments** — code, writing, and prototypes created while testing AI-assisted workflows.
+- **Platforms** — sanitized reference architectures for self-hosted AI workflows.
 
 ## Available experts
 
@@ -16,6 +17,12 @@ A public, evolving collection of the prompts, configurations, tools, and notes I
 - [Interview preparation](experts/interview-prep/README.md) — Agent Skill and
   methodology for CV+JD interview prep packs and optional mock rounds, reusing
   `offer-intel` for public interview-process research when available.
+
+## Available platform blueprints
+
+- [Pi Discord Specialists](platforms/pi-discord-specialists/README.md) — a sanitized
+  blueprint for private specialist channels, persistent thread sessions,
+  least-privilege tools, shared memory, provider fallback, and scheduled work.
 
 ## Quick start
 
@@ -56,6 +63,8 @@ resources/
   to-explore.md
   explored.md
 experiments/
+platforms/
+  pi-discord-specialists/
 ```
 
 Each expert can include:
@@ -68,6 +77,14 @@ Each expert can include:
 ## Contributing and privacy
 
 This is primarily a personal knowledge base shared publicly. Please do not add private information, credentials, personal contact details, or proprietary materials. Use anonymized examples when an expert needs a CV, job offer, company information, or other sensitive context.
+
+Before publishing changes, run the dependency-free repository check:
+
+```bash
+python3 scripts/check_public_repo.py
+```
+
+It detects high-confidence secrets and private deployment identifiers. It complements manual review and a maintained secret scanner; it is not a guarantee that content is safe to publish.
 
 ## Status
 

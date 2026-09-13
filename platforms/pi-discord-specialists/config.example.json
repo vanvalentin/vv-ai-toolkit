@@ -1,0 +1,48 @@
+{
+  "tokenFile": "/etc/pi-discord-specialists/discord.token",
+  "guildId": "REPLACE_WITH_DISCORD_GUILD_ID",
+  "baseDir": "/var/lib/pi-discord-specialists",
+  "piBin": "/usr/local/bin/pi",
+  "stateFile": "/var/lib/pi-discord-specialists/state.json",
+  "idleTimeoutMinutes": 30,
+  "webSearch": {
+    "provider": "REPLACE_WITH_SEARCH_PROVIDER",
+    "fallbackProvider": "REPLACE_WITH_FALLBACK_OR_NONE"
+  },
+  "fallbacks": [
+    {
+      "provider": "REPLACE_WITH_FALLBACK_PROVIDER",
+      "model": "REPLACE_WITH_FALLBACK_MODEL",
+      "thinking": "high"
+    }
+  ],
+  "scheduleAgentRun": {
+    "allowSpecialists": [
+      "job-search"
+    ],
+    "maxRunsPerThread": 5
+  },
+  "intents": 33281,
+  "specialists": {
+    "REPLACE_WITH_DISCORD_CHANNEL_ID": {
+      "id": "example-specialist",
+      "name": "Example Specialist",
+      "channelName": "example-specialist",
+      "channelType": "text",
+      "provider": "REPLACE_WITH_PRIMARY_PROVIDER",
+      "model": "REPLACE_WITH_PRIMARY_MODEL",
+      "thinking": "high"
+    },
+    "REPLACE_WITH_INFRASTRUCTURE_CHANNEL_ID": {
+      "id": "infrastructure",
+      "name": "Infrastructure",
+      "channelName": "infrastructure",
+      "channelType": "text",
+      "provider": "REPLACE_WITH_PRIMARY_PROVIDER",
+      "model": "REPLACE_WITH_PRIMARY_MODEL",
+      "thinking": "high",
+      "allowBuiltinTools": true
+    }
+  },
+  "legacyForums": {}
+}

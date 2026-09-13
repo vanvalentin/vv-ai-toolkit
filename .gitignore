@@ -13,3 +13,15 @@ htmlcov/
 # Local authenticated browser state and private case artifacts.
 .offer-intel/
 artifacts/private/
+
+# Self-hosted platform runtime state and credentials.
+*.token
+*.pem
+*.key
+config.local.json
+sessions/
+outputs/
+logs/
+state.json
+cookies.json
+credentials.json
