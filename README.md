@@ -27,6 +27,7 @@ The platform is the primary focus of this repository. It documents the architect
 ## Reference material
 
 - [Sanitized configuration](reference/config.example.json)
+- [Eleven sanitized specialist personas](reference/specialists/README.md)
 - [Specialist persona template](reference/specialist-template/AGENTS.md)
 - [Blank specialist memory](reference/specialist-template/memory.md)
 - [Example systemd units](reference/systemd/)
