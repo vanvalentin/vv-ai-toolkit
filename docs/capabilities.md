@@ -1,6 +1,6 @@
 # Capability catalog
 
-This is a generalized snapshot of the capability pattern in the current deployment. Names describe boundaries, not published production endpoints or credentials. Each role links to a rewritten, sanitized reference persona.
+This is a generalized snapshot of the capability pattern in the current deployment. Names describe boundaries, not published production endpoints or credentials. Each role links to a rewritten, sanitized reference persona. See the [tool catalog](tools.md) for exact interface names and current access scopes.
 
 ## Shared capabilities
 

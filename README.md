@@ -21,6 +21,7 @@ The platform is the primary focus of this repository. It documents the architect
 
 - [Architecture](docs/architecture.md) — components, session lifecycle, policy layers, tool boundaries, scheduling, integrations, and reliability.
 - [Capability catalog](docs/capabilities.md) — generalized snapshot of the current specialist and companion-service capabilities.
+- [Tool catalog and access scopes](docs/tools.md) — current extension tools, specialist assignments, enforcement layers, and access diagrams.
 - [Security and privacy](docs/security.md) — least privilege, secret handling, prompt-injection resistance, scoped-tool checklist, and release gate.
 - [Operations](docs/operations.md) — deployment sequence, validation, backups, updates, and recovery practices.
 

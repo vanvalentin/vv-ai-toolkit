@@ -1,10 +1,12 @@
-# Resources
+# Resources and design history
 
-Links, references, and notes worth exploring or revisiting.
+This directory records public references, generalized lessons already applied, and a prioritized exploration backlog for the Pi Discord Specialists platform.
 
-## Suggested organization
+- [`explored.md`](explored.md) — reviewed sources, implementation decisions, limitations, and reusable lessons from operating the specialist platform.
+- [`to-explore.md`](to-explore.md) — focused future investigations with a question and success criterion.
 
-- `to-explore.md` — resources saved for later.
-- `explored.md` — resources reviewed, with brief notes on the key takeaways.
+## Privacy rule
 
-For each entry, include the title, URL, date added or reviewed, and a short note explaining why it is useful.
+These notes may be informed by specialist usage and durable memory, but they must never reproduce conversations, personal profiles, addresses, balances, holdings, applications, travel plans, equipment inventories, account details, private URLs, identifiers, credentials, or deployment-specific network information.
+
+Capture only architecture, safety patterns, generic failure modes, and broadly reusable product lessons. Verify public references directly and include the review date.
