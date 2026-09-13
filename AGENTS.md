@@ -15,11 +15,9 @@ Pi Discord Specialists is the primary project. Preserve its least-privilege, pri
 7. Do not bypass authentication, CAPTCHAs, paywalls, rate limits, risk controls, or other access restrictions.
 8. Confirm before destructive, permission-changing, sharing, or materially disruptive operations.
 
-## Career toolkit
+## Repository boundaries
 
-The optional offer-intelligence and interview-prep workflows are self-contained under `toolkits/career/`. When working there, read `toolkits/career/AGENTS.md` and run commands from that directory unless its documentation says otherwise.
-
-Do not move career-client configuration back to the repository root. Root-level `.agents`, `.claude`, `.codex`, `.cursor`, or MCP configuration would auto-activate an optional toolkit for the whole project.
+Do not add root-level `.agents`, `.claude`, `.codex`, `.cursor`, or MCP client configuration. This blueprint must not auto-activate optional tools or external services when cloned.
 
 ## Public-repository gate
 

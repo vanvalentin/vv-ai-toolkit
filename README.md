@@ -50,13 +50,11 @@ The bridge can stop idle Pi processes while retaining session files, then resume
 ```text
 docs/                       Platform architecture and operating guidance
 reference/                  Sanitized configuration and service templates
-toolkits/career/            Optional offer-intelligence and interview-prep toolkit
 resources/                  Explored and prospective AI workflow ideas
 experiments/                Prototypes and tests
 scripts/check_public_repo.py
 ```
 
-The career toolkit is intentionally self-contained. Its `.agents`, `.claude`, `.codex`, `.cursor`, and MCP files activate only when that subdirectory is opened as the project, rather than configuring every clone of this repository.
 
 ## Privacy gate
 

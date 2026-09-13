@@ -10,10 +10,6 @@ htmlcov/
 .env.*
 !.env.example
 
-# Local authenticated browser state and private case artifacts.
-.offer-intel/
-artifacts/private/
-
 # Self-hosted platform runtime state and credentials.
 *.token
 *.pem

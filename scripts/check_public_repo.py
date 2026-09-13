@@ -24,7 +24,7 @@ SENSITIVE_FILENAMES = {
     ".env", "auth.json", "credentials.json", "discord.token", "cookies.json",
 }
 
-# Optional client integrations belong inside their toolkit, not at repository root.
+# This blueprint intentionally ships without auto-activating client integrations.
 FORBIDDEN_ROOT_PATHS = (".agents", ".claude", ".codex", ".cursor", ".mcp.json")
 
 RULES: list[tuple[str, re.Pattern[str]]] = [
@@ -110,7 +110,7 @@ def main() -> int:
     all_findings: list[tuple[str, str]] = []
     for rel in FORBIDDEN_ROOT_PATHS:
         if (ROOT / rel).exists():
-            all_findings.append((rel, "optional client integration must be toolkit-local"))
+            all_findings.append((rel, "client auto-configuration is not allowed at repository root"))
 
     for path in candidate_paths():
         for finding in scan(path):
